@@ -1,0 +1,161 @@
+/* Font import from Google Fonts */
+
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Custom Properties */
+
+:root {
+    --white: hsl(0, 0%, 100%);
+    --light-pink: hsl(275, 100%, 97%);
+    --grayish-purple: hsl(292, 16%, 49%);
+    --dark-purple: hsl(292, 42%, 14%);
+    
+    --font-size-p: 16px;
+
+    --font-family: "Work Sans", sans-serif;
+    --fw-400: 400;
+    --fw-600: 600;
+    --fw-700: 700;
+}
+
+/* Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-family);
+
+}
+
+/* Utility Classes */
+
+.fw-400 {
+    font-weight: var(--fw-400);
+}
+.fw-600 {
+    font-weight: var(--fw-600);
+}
+.fw-700 {
+    font-weight: var(--fw-700);
+}
+
+.opacity {
+    opacity: .5;
+    line-height: 1.5;
+    font-weight: var(--fw-600);
+    font-size: .85em;
+    color: var(--dark-purple);
+    padding: 0em 1.5em;
+}
+
+.display-hidden {
+    display: none;
+}
+
+/* General Styling */
+
+body {
+  background: url(assets/images/background-pattern-mobile.svg); 
+  background-repeat: no-repeat; 
+  background-size: contain;
+  background-color: var(--light-pink);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container {
+    background: var(--white);
+    width: 20em;
+    padding: 2em 1.5em;
+    /* Use flex on the container so the items inside can be moved to the desired location */
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    border-radius: 10px;
+    margin-block: 9em;
+}
+
+.container .header {
+    display: flex;
+    gap: 1.5em;
+    align-items: center;
+}
+
+.header img {
+    height: 2em;
+    margin-left: 0.75em;
+}
+
+.header h1 {
+    font-size: 3em;
+}
+
+.container .content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-height: 0; /* Prevents the menu from shifting laterally when opened */
+    padding: 1.5em 1em;
+    transition: max-height 0.2s ease-out;
+}
+
+
+.content:hover {
+    color: var(--grayish-purple);
+    font-weight: var(--fw-700);
+    cursor: pointer;
+}
+
+
+.content::after {
+    content: url(assets/images/icon-plus.svg);
+}
+
+.active::after {
+    content: url(assets/images/icon-minus.svg);
+}
+
+
+
+.container .content img {
+    cursor: pointer;
+}
+
+.container hr {
+    color: var(--grayish-purple);
+    border: 1.5px solid;
+    opacity: 0.1;
+}
+
+@media(min-width: 33.75em) {
+    body {
+        background: url(assets/images/background-pattern-desktop.svg);
+        background-repeat: no-repeat;
+        background-size: contain; /* So the image covers the entire width */
+        background-color: var(--light-pink);
+        background-position: 0em -5em;
+    }
+
+    .container {
+        width: 20em;
+    }
+}
+
+@media(min-width: 48.875em) {
+    .container {
+        width: 35em;
+    }
+}
+
+@media (max-width: 67.5em) {
+    body {
+        background-position: inherit;
+    }
+}
+
+
+
